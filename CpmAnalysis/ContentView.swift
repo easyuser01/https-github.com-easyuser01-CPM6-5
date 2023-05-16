@@ -11,20 +11,23 @@ struct ContentView: View {
     
     @EnvironmentObject var vm : CpmViewModel
     
-    @State  var startDate: Int32 = 1
+    @State var startDate: Int32 = 1
     @State var startDateText: String = "1"
     @State var idText: String = ""
-    @State var nameText: String = ""
+    @State var atypeText: String = ""
     @State var durationText: String = ""
     @State var predecessorsText: String = ""
     @State var successorsText: String = ""
-    
+    //------------------------------------------
+    @State private var showSchedule = false
+    var weatherConsideredSchedule: [String: [String]] = [:]
+    //------------------------------------
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 startDateTextSection
                 idTextSection
-                nameTextSection
+                atypeTextSection
                 durationTextSection
                 predecessorsTextSection
                 successorsTextSection
@@ -61,13 +64,13 @@ struct ContentView: View {
                         
                         if let idTemp = Int32(idText) {
                             if let temp = vm.savedActivities.first(where: {$0.id == idTemp}) {
-                                temp.name = nameText
+                                temp.atype = atypeText
                                 temp.duration = Int32(durationText) ?? 0
                                 temp.predecessors = tempPredecessors
                                 temp.successors = tempSuccessors
                             } else {
                                 vm.addActivity(id: Int32(idText) ?? 0,
-                                               name: nameText,
+                                               atype: atypeText,
                                                duration: Int32(durationText) ?? 0,
                                                predecessors: tempPredecessors,
                                                successors: tempSuccessors)
@@ -78,6 +81,8 @@ struct ContentView: View {
                         Text("Save")
                             .font(.headline)
                             .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(nil)
                             .frame(height: 55)
                             .frame(maxWidth: .infinity)
                             .background(Color.pink)
@@ -87,10 +92,10 @@ struct ContentView: View {
                     .padding(.horizontal)
                     
                     NavigationLink(destination:
-                                    CpmResultView()
-                                    .environmentObject(vm)
-                                   
-                    ) {
+                                    CpmResultView(atypes: vm.savedActivities.compactMap { $0.atype })
+                        .environmentObject(vm)
+                    ){
+                        
                         Text("Schedule Calculate")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -105,6 +110,14 @@ struct ContentView: View {
                         vm.project.scheduleCalculation(startDate: startDate)
                         startDateText = String(startDate)
                     })
+                    NavigationLink("",destination: WeatherAvailabilityView(), isActive: $showSchedule)
+                                   Button(action: {
+                                       showSchedule.toggle()
+                                   }) {
+                                       Text("Weather availablility")
+                                   }
+                                   .padding()
+
                 }
   
                 List {
@@ -113,7 +126,7 @@ struct ContentView: View {
                             .onTapGesture {
                                 
                                 idText = String(activity.id)
-                                nameText = activity.name ?? ""
+                                atypeText = activity.atype ?? ""
                                 durationText = String(activity.duration)
                                 
                                 if let tempPredecessors = activity.predecessors {
@@ -141,6 +154,8 @@ struct ContentView: View {
         }
         .navigationTitle("Activity")
     }
+    
+    
   
     private var startDateTextSection: some View {
         HStack {
@@ -167,8 +182,8 @@ struct ContentView: View {
             .padding(.leading)
     }
     
-    private var nameTextSection: some View {
-        TextField("name", text: $nameText)
+    private var atypeTextSection: some View {
+        TextField("type", text: $atypeText)
             .font(.headline)
             .frame(height: 55)
             .background(Color.white)

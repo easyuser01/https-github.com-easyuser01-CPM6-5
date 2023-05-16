@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CpmAnalysisApp: App {
+struct FinecalculatorApp: App {
     @StateObject var vm = CpmViewModel()
     
     var body: some Scene {

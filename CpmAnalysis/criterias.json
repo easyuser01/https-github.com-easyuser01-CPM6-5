@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "name": "temporary construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 10,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 2,
+        "name": "foundation work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 0,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 3,
+        "name": "steel construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 0,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 4,
+        "name": "PC construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 4,
+        "temperaturemax": 25,
+        "wind": 10
+    },
+    {
+        "id": 5,
+        "name": "masonry work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 4,
+        "temperaturemax": 37,
+        "wind": 10
+    },
+    {
+        "id": 6,
+        "name": "flooring construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 100,
+        "wind": 100
+    },
+    {
+        "id": 7,
+        "name": "tile construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 8,
+        "name": "stone work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 9,
+        "name": "glass construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 4,
+        "temperaturemax": 30,
+        "wind": 10
+    },
+    {
+        "id": 10,
+        "name": "interior construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 100,
+        "wind": 100
+    },
+    {
+        "id": 11,
+        "name": "metal work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 0,
+        "temperaturemax": 100,
+        "wind": 10
+    },
+    {
+        "id": 12,
+        "name": "painting work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 35,
+        "wind": 100
+    },
+    {
+        "id": 13,
+        "name": "insulation work",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 5,
+        "temperaturemax": 35,
+        "wind": 100
+    },
+    {
+        "id": 14,
+        "name": "roofing construction",
+        "snow": 0.5,
+        "rainfall": 5,
+        "temperaturemin": 10,
+        "temperaturemax": 100,
+        "wind": 10
+    }
+]

@@ -19,7 +19,7 @@ extension Activity : Identifiable {
     @NSManaged public var earlyStart: Int32
     @NSManaged public var earlyFinish: Int32
     @NSManaged public var id: Int32
-    @NSManaged public var name: String?
+    @NSManaged public var atype: String?
     @NSManaged public var duration: Int32
     @NSManaged public var lateStart: Int32
     @NSManaged public var lateFinish: Int32
